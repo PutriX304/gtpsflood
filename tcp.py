@@ -13,9 +13,9 @@ def run():
             s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
             s.connect((ip, port))
             s.send(data)
+            print("[+] Sended ("+str(len(data))+").")
             for x in range(conn):
                 s.send(data)
-            print("[+] Sended ("+str(len(data))+").")
         except:
             s.close()
 
