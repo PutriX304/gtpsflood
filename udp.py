@@ -9,6 +9,7 @@ print("""
   Simple UDP Flood
 """)
 ip = str(input("IP Target: "))
+ip = socket.gethostbyname(ip)
 port = int(input("Port Target: "))
 threads = int(input("Threads: "))
 conn = int(input("Multi Packet: "))
