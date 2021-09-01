@@ -1,4 +1,4 @@
-#-- coding: utf8 --
+#-*- coding: utf-8 -*-
 #!/usr/bin/env python
 import sys, os, time
 from pathlib import Path
