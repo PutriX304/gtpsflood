@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 #!/usr/bin/env python
 import sys, os, time
-from pathlib import Path
 from scapy.all import *
 from contextlib import contextmanager, redirect_stdout
 
@@ -78,3 +77,4 @@ while True:
         print('[✘] Error: No bots stored locally or remotely on Shodan!')
         print('[~] Restarting Platform! Please wait.')
         print('')
+        pass
