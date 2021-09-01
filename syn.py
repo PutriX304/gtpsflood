@@ -21,7 +21,7 @@ def randInt():
 def SYN_Flood(dstIP,dstPort):
 	total = 0
 	print ("Packets are sending ...")
-  while True:
+        while True:
 		s_port = randInt()
 		s_eq = randInt()
 		w_indow = randInt()
