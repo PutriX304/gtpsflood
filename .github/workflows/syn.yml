@@ -27,4 +27,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python syn.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }}
+        sudo python syn.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }}
