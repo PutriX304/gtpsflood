@@ -1,4 +1,4 @@
-name: Microsoft Socks RDP Flood
+name: Socks Flood
 
 on:
   workflow_dispatch:
