@@ -44,10 +44,6 @@ while True:
     try:
         with open('bots.txt') as my_file:
             ip_array = [line.rstrip() for line in my_file]
-        else:
-            print('')
-            print('[✘] Error: No bots stored locally, bots.txt file not found!')
-            print('')
         target = sys.argv[2]
         targetport = sys.argv[3]
         power = int(sys.argv[4])
