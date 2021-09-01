@@ -42,8 +42,8 @@ def SYN_Flood(dstIP,dstPort):
 
 
 def info():
-    dstIP = str(input(sys.argv[1]))
-    dstPort = int(input(sys.argv[2]))
+    dstIP = str(sys.argv[1])
+    dstPort = int(sys.argv[2])
     return dstIP,int(dstPort)
 
 def main():
