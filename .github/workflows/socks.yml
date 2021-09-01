@@ -9,7 +9,7 @@ on:
       portgt:
         description: "Port Target"
         required: true
-        default: "3389"
+        default: "80"
       thread:
         description: "Threads"
         required: true
