@@ -1,4 +1,4 @@
-name: WFDoS Massal Flood
+name: Massal Flood
 
 on:
   workflow_dispatch:
