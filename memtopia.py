@@ -68,5 +68,5 @@ while True:
         print('')
         print('[•] Task complete! Exiting Platform. Have a wonderful day.')
         break
-    except Scapy_Exception:
-        return Scapy_Exception
+    except Scapy_Exception as e:
+        return 
