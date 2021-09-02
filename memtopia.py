@@ -69,4 +69,4 @@ while True:
         print('[•] Task complete! Exiting Platform. Have a wonderful day.')
         break
     except Scapy_Exception as e:
-        return 
+        print(e)
