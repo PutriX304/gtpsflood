@@ -3,7 +3,7 @@
 <p align="center">Simple collection of GTPS Flood in Python.</p>
 
 # NOTE
-Give me credit if you use this source. And don't trade/sell this tool.
+Give me credit if you use this source, don't trade/sell this tool, And **USE AT YOUR OWN RISK**.
 
 # Credits
 1. [MHProDev](https://github.com/MHProDev/MHDDoS)
