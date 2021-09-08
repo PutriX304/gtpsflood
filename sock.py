@@ -175,7 +175,7 @@ class Socks(threading.Thread):
             try:
                 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
                 s = socks.socksocket()
-                s.connect((str(host_url), int(port)))
+                s.connect((str(host_ip), int(port)))
                 if str(port) == '443':
                     s = ssl.wrap_socket(s)
                 s.send(str.encode(request))
@@ -234,7 +234,7 @@ class Socks(threading.Thread):
                 try:
                     socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
                     s = socks.socksocket()
-                    s.connect((str(host_url), int(port)))
+                    s.connect((str(host_ip), int(port)))
                     if str(port) == '443':
                         s = ssl.wrap_socket(s)
                     s.send(str.encode(request))
