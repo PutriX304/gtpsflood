@@ -34,6 +34,7 @@ import socket
 import threading
 
 ip = str(sys.argv[1])
+ip = socket.gethostbyname(ip)
 port = int(sys.argv[2])
 method_attack = int(sys.argv[3])
 times = int(sys.argv[4])
