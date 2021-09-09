@@ -1,6 +1,7 @@
 import os,sys
 import socket, threading
 ip = str(sys.argv[1])
+ip = socket.gethostbyname(ip)
 port = int(sys.argv[2])
 threads = int(sys.argv[3])
 conn = int(sys.argv[4])
