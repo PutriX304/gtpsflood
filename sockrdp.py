@@ -8,6 +8,7 @@ import random
 import requests
 
 def main():
+    global ip, port, threads, proxies, x
     ip = str(sys.argv[1])
     port = int(sys.argv[2])
     threads = int(sys.argv[3])
@@ -23,7 +24,6 @@ def main():
     f.close()
     proxies = open(str(sys.argv[4])).readlines()
     x = int(0)
-    global ip, port, threads, proxies, x
     for x in range(threads):
         Socks(x+1).start()
 
