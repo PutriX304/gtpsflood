@@ -9,6 +9,7 @@
     <img title="Star" src="https://img.shields.io/github/stars/PhynX404/gtpsflood?color=yellow&style=flat-square">
     <img title="Fork" src="https://img.shields.io/github/forks/PhynX404/gtpsflood?color=red&style=flat-square">
     <img title="Watch" src="https://img.shields.io/github/watchers/PhynX404/gtpsflood?label=Watchers&color=blue&style=flat-square">
+    <img title="Repo Size" src="https://img.shields.io/github/repo-size/PhynX404/gtpsflood?style=flat-square">
     <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPhynX404%2Fgtpsflood&icon=probot.svg&icon_color=%2300FF6D&title=Visit%20Count&edge_flat=false">
     <br>
     <img title="codefactor.io" src="https://www.codefactor.io/repository/github/PhynX404/gtpsflood/badge">
