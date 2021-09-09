@@ -132,6 +132,7 @@ acceptall = ["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n"]
 
 def main():
+    global ip, port, threads, proxies, x, method
     ip = str(sys.argv[1])
     port = int(sys.argv[2])
     threads = int(sys.argv[3])
@@ -148,7 +149,6 @@ def main():
     f.close()
     proxies = open(str(sys.argv[5])).readlines()
     x = int(0)
-    global ip, port, threads, proxies, x, method
     for x in range(threads):
         Socks(x+1).start()
 
