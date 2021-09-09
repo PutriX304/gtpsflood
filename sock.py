@@ -1,6 +1,7 @@
 import os,sys
 import threading
 import socks
+import ssl
 import socket
 import random
 import requests
@@ -156,7 +157,7 @@ class Socks(threading.Thread):
         self.counter = counter
 
     def run(self):
-        global req_code, error
+        global req_code, error, s
         useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
         accept    = "Accept: " + random.choice(acceptall) + "\r\n"
         randomip  = str(random.randint(1,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))
