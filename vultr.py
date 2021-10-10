@@ -11,7 +11,7 @@ def main():
   po = int(sys.argv[2])
   th = int(sys.argv[3])
   for x in range(th):
-    t = threading.Thread(target=etek, argv=tg,po)
+    t = threading.Thread(target=etek, args=(tg,po,))
     t.start()
 
 def etek(ip, port):
