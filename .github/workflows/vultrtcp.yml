@@ -1,4 +1,4 @@
-wname: VULTR TCP Flood
+name: VULTR TCP Flood
 
 on:
   workflow_dispatch:
