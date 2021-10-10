@@ -11,8 +11,8 @@ def main():
   po = int(sys.argv[2])
   th = int(sys.argv[3])
   for x in range(th):
-    th = threading.Thread(target=etek)
-    th.start()
+    t = threading.Thread(target=etek, argv=ip,port)
+    t.start()
 
 def etek(ip, port):
   pkt = random._urandom(9048)
