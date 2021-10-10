@@ -31,4 +31,4 @@ def etek(ip, port):
       pass
 
 if __name__ == "__main__":
-  main()⏎
+  main()
