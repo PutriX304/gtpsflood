@@ -23,6 +23,9 @@ on:
         required: true
         default: '3000'
 
+  repository_dispatch:
+    types:
+      - webhook
 
 jobs:
   WFDoS:
