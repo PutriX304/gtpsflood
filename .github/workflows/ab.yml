@@ -14,7 +14,7 @@ on:
       multiconn:
         description: "Multi Connection (Max. 20k): "
         required: true
-        default: "2000"
+        default: "1000"
       psize:
         description: "Packet Size: "
         required: true
