@@ -10,11 +10,11 @@ on:
       numreq:
         description: "Number of Request(s): "
         required: true
-        default: "4864"
+        default: "1000"
       multiconn:
         description: "Multi Connection (Max. 20k): "
         required: true
-        default: "4864"
+        default: "2000"
       psize:
         description: "Packet Size: "
         required: true
