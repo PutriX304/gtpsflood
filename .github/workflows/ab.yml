@@ -12,9 +12,9 @@ on:
         required: true
         default: "100000"
       multiconn:
-        description: "Multi Connection: "
+        description: "Multi Connection (Max. 20k): "
         required: true
-        default: "100000"
+        default: "20000"
       psize:
         description: "Packet Size: "
         required: true
