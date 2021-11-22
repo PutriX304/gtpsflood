@@ -10,7 +10,7 @@ on:
       numreq:
         description: "Number of Request(s): "
         required: true
-        default: "50000"
+        default: "4864"
       multiconn:
         description: "Multi Connection (Max. 20k): "
         required: true
