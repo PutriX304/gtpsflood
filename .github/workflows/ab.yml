@@ -34,4 +34,4 @@ jobs:
         sudo apt install apache2-utils
     - name: Starting Flood...
       run: |
-        sudo ab -k -b 9048 -s -r -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.iptgt }}
+        sudo ab -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} ${{ github.event.inputs.iptgt }} -k -r -b ${{ github.event.inputs.psize }} -s ${{ github.event.inputs.maxtimeout }}
