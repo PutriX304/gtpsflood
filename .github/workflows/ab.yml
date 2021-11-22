@@ -32,10 +32,7 @@ jobs:
     - name: Install dependencies & Prepare
       run: |
         sudo apt install apache2-utils
-        sudo echo -ne " 
-        * soft nofile 65536
-        * hard nofile 65536
-        " >>/etc/security/limits.conf 
+        sudo ulimit -n 65536
     - name: Starting Flood...
       run: |
         sudo ab -n ${{ github.event.inputs.numreq }} -c ${{ github.event.inputs.multiconn }} -b ${{ github.event.inputs.psize }} -s ${{ github.event.inputs.maxtimeout }} -k -r ${{ github.event.inputs.iptgt }}/
