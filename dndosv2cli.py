@@ -1,8 +1,10 @@
 #This tool originally by PhynX
 #Use At Your Own Risk.
 # -*- coding: utf-8 -*-
-                                                                                                     import os, sys                                                                                       import socket, socks, threading, random, re, os, ssl
-from time import sleep                                                                               from os import system
+import os, sys
+import socket, socks, threading, random, re, os, ssl
+from time import sleep
+from os import system
 from sys import stdout
 from random import randint
 
