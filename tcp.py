@@ -11,7 +11,7 @@ def run():
     while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+            # s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
             s.connect((ip, port))
             s.send(data)
             print("[+] Sended ("+str(len(data))+").")
