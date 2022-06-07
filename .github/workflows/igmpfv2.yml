@@ -36,4 +36,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Starting Flood...
       run: |
-        python igmpf.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.conn }} ${{ github.event.inputs.ps }}
+        python igmpfv2.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.thread }} ${{ github.event.inputs.conn }} ${{ github.event.inputs.ps }}
