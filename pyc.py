@@ -159,8 +159,6 @@ def atk(a, b, c):
 			curl.setopt(pycurl.NOBODY, 1)
 		try:
 			curl.perform()
-			curl.perform()
-			curl.perform()
 		except:
 			pass
 
