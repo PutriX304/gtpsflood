@@ -161,6 +161,9 @@ def atk(a, b, c):
 			curl.perform()
 		except:
 			pass
+		finally:
+			curl.close()
+			by.close()
 
 for x in range(thr):
 	x = x + 1
